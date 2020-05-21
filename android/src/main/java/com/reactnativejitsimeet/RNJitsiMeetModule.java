@@ -106,9 +106,6 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
                     if (userInfo.hasKey("raiseHand")) {
                         builder.setFeatureFlag("raise-hand.enabled",userInfo.getBoolean("raiseHand"));
                     }
-                    if (userInfo.hasKey("meetingName")) {
-                        builder.setFeatureFlag("meeting-name.enabled",userInfo.getBoolean("meetingName"));
-                    }
                     if (userInfo.hasKey("recording")) {
                         builder.setFeatureFlag("recording.enabled",userInfo.getBoolean("recording"));
                     }
@@ -118,9 +115,7 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
                     if (userInfo.hasKey("toolboxAwaysVisible")) {
                         builder.setFeatureFlag("toolbox.alwaysVisible",userInfo.getBoolean("toolboxAwaysVisible"));
                     }
-                    if (userInfo.hasKey("welcomePage")) {
-                        builder.setFeatureFlag("welcomepage.enabled",userInfo.getBoolean("welcomePage"));
-                    }
+                    
 
                     RNJitsiMeetConferenceOptions options =
                             builder
