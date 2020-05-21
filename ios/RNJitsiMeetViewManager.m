@@ -61,9 +61,9 @@ RCT_EXPORT_METHOD(call:(NSString *)urlString userInfo:(NSDictionary *)userInfo)
                     builder.welcomePageEnabled = YES;
                 }
                 
-                //if (userInfo[@"welcomePage"] != NULL) {
-                    //[builder.welcomePageEnabled : ];
-                //}
+                if (userInfo[@"addPeople"] != NULL) {
+                    [builder setFeatureFlag:@"add-people.enabled" withBoolean:userInfo[@"addPeople"] ];
+                }
                 
             }
         }];

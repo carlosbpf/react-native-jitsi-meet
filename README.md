@@ -366,3 +366,29 @@ If your app already includes `react-native-locale-detector` or `react-native-vec
       exclude group: 'com.facebook.react',module:'react-native-vector-icons'
     }
 ```
+
+
+###Carlos Extras:
+Install own version of react-native module : [Step by step](https://dev.to/paddy57/how-to-fork-github-repository-and-use-as-npm-dependency-inside-a-react-native-project-2j21)
+```
+  npm install --save git+https://git@github.com/carlosbpf/react-native-jitsi-meet
+```
+
+Rocket chat usage of custom react-native-jitsi-meet 
+https://github.com/RocketChat/Rocket.Chat.ReactNative/pull/1196/files?file-filters%5B%5D=.gradle&file-filters%5B%5D=.js&file-filters%5B%5D=.lock
+
+And local API BUILD:
+For android:
+https://github.com/RocketChat/react-native-jitsi-meet/blob/master/android/build.gradle
+same repo 
+
+
+
+
+
+
+
+
+
+
+
