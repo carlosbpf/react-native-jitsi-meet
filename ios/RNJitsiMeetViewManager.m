@@ -39,11 +39,33 @@ RCT_EXPORT_METHOD(call:(NSString *)urlString userInfo:(NSDictionary *)userInfo)
         NSURL *url = [NSURL URLWithString:[userInfo[@"avatar"] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]];
         _userInfo.avatar = url;
       }
+    
     }
+    
     dispatch_sync(dispatch_get_main_queue(), ^{
+        
         JitsiMeetConferenceOptions *options = [JitsiMeetConferenceOptions fromBuilder:^(JitsiMeetConferenceOptionsBuilder *builder) {        
             builder.room = urlString;
             builder.userInfo = _userInfo;
+            if (userInfo != NULL) {
+                if (userInfo[@"audioOnly"] != NULL) {
+                    builder.audioOnly = userInfo[@"audioOnly"];
+                }
+                if (userInfo[@"audioMuted"] != NULL) {
+                    builder.audioMuted = userInfo[@"audioMuted"];
+                }
+                if (userInfo[@"videoMuted"] != NULL) {
+                    builder.videoMuted = userInfo[@"videoMuted"];
+                }
+                if (userInfo[@"welcomePage"] != NULL) {
+                    builder.welcomePageEnabled = YES;
+                }
+                
+                //if (userInfo[@"welcomePage"] != NULL) {
+                    //[builder.welcomePageEnabled : ];
+                //}
+                
+            }
         }];
         [jitsiMeetView join:options];
     });

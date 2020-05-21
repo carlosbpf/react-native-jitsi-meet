@@ -53,10 +53,83 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
                             }
                           }
                     }
-                    RNJitsiMeetConferenceOptions options = new RNJitsiMeetConferenceOptions.Builder()
-                            .setRoom(url)
-                            .setAudioOnly(false)
-                            .setUserInfo(_userInfo)
+
+                    RNJitsiMeetConferenceOptions.Builder builder = new RNJitsiMeetConferenceOptions.Builder();
+                    builder.setRoom(url)
+                            .setUserInfo(_userInfo);
+
+                    if (userInfo.hasKey("audioOnly")) {
+                        builder.setAudioOnly(userInfo.getBoolean("audioOnly"));
+                    }
+                    if (userInfo.hasKey("audioMuted")) {
+                        builder.setAudioMuted(userInfo.getBoolean("audioMuted"));
+                    }
+                    if (userInfo.hasKey("colorScheme")) {
+                        //builder.setColorScheme(userInfo.getArray("audioMuted"));
+                    }
+                    if (userInfo.hasKey("videoMuted")) {
+                        builder.setVideoMuted(userInfo.getBoolean("videoMuted"));
+                    }
+                    if (userInfo.hasKey("welcomePageEnabled")) {
+                        builder.setWelcomePageEnabled(userInfo.getBoolean("welcomePageEnabled"));
+                    }
+                    if (userInfo.hasKey("addPeople")) {
+                        builder.setFeatureFlag("add-people.enabled",userInfo.getBoolean("addPeople"));
+                    }
+                    if (userInfo.hasKey("calendar")) {
+                        builder.setFeatureFlag("calendar.enabled",userInfo.getBoolean("addPeople"));
+                    }
+                    if (userInfo.hasKey("callIntegration")) {
+                        builder.setFeatureFlag("call-integration.enabled",userInfo.getBoolean("callIntegration"));
+                    }
+                    if (userInfo.hasKey("closeCaptions")) {
+                        builder.setFeatureFlag("close-captions.enabled",userInfo.getBoolean("closeCaptions"));
+                    }
+                    if (userInfo.hasKey("chat")) {
+                        builder.setFeatureFlag("chat.enabled",userInfo.getBoolean("chat"));
+                    }
+                    if (userInfo.hasKey("invite")) {
+                        builder.setFeatureFlag("invite.enabled'",userInfo.getBoolean("invite"));
+                    }
+                    if (userInfo.hasKey("liveStreaming")) {
+                        builder.setFeatureFlag("live-streaming",userInfo.getBoolean("liveStreaming"));
+                    }
+                    if (userInfo.hasKey("meetingName")) {
+                        builder.setFeatureFlag("meeting-name.enabled",userInfo.getBoolean("meetingName"));
+                    }
+                    if (userInfo.hasKey("meetingPassword")) {
+                        builder.setFeatureFlag("meeting-password.enabled",userInfo.getBoolean("meetingPassword"));
+                    }
+                    if (userInfo.hasKey("pip")) {
+                        builder.setFeatureFlag("pip.enabled",userInfo.getBoolean("pip"));
+                    }
+                    if (userInfo.hasKey("raiseHand")) {
+                        builder.setFeatureFlag("raise-hand.enabled",userInfo.getBoolean("raiseHand"));
+                    }
+                    if (userInfo.hasKey("meetingName")) {
+                        builder.setFeatureFlag("meeting-name.enabled",userInfo.getBoolean("meetingName"));
+                    }
+                    if (userInfo.hasKey("raiseHand")) {
+                        builder.setFeatureFlag("raise-hand.enabled",userInfo.getBoolean("raiseHand"));
+                    }
+                    if (userInfo.hasKey("recording")) {
+                        builder.setFeatureFlag("recording.enabled",userInfo.getBoolean("recording"));
+                    }
+                    if (userInfo.hasKey("raiseHand")) {
+                        builder.setFeatureFlag("raise-hand.enabled",userInfo.getBoolean("raiseHand"));
+                    }
+                    if (userInfo.hasKey("tileView")) {
+                        builder.setFeatureFlag("tile-view.enabled'",userInfo.getBoolean("tileView"));
+                    }
+                    if (userInfo.hasKey("toolboxAwaysVisible")) {
+                        builder.setFeatureFlag("toolbox.alwaysVisible",userInfo.getBoolean("toolboxAwaysVisible"));
+                    }
+                    if (userInfo.hasKey("welcomePage")) {
+                        builder.setFeatureFlag("welcomepage.enabled",userInfo.getBoolean("welcomePage"));
+                    }
+
+                    RNJitsiMeetConferenceOptions options =
+                            builder
                             .build();
                     mJitsiMeetViewReference.getJitsiMeetView().join(options);
                 }
