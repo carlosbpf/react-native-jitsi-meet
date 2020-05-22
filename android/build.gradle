@@ -36,16 +36,15 @@ android {
 }
 
 repositories {
-  maven {
-      url "https://github.com/jitsi/jitsi-maven-repository/raw/master/releases"
-  }
+  //maven {url "https://github.com/jitsi/jitsi-maven-repository/raw/master/releases"}
+  maven { url "file:/tmp/repo" }
+
   google()
   mavenCentral()
   jcenter()
 }
 
-dependencies {
-    implementation ('org.jitsi.react:jitsi-meet-sdk:2.4.0') {
-      transitive = true
-    }
+dependencies 
+  //{implementation ('org.jitsi.react:jitsi-meet-sdk:2.4.0') {transitive = true}
+  {implementation ('org.jitsi.react:jitsi-meet-sdk:+') { transitive = true }
 }

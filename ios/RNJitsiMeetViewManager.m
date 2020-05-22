@@ -53,7 +53,7 @@ RCT_EXPORT_METHOD(call:(NSString *)urlString userInfo:(NSDictionary *)userInfo)
                 }
                 if (userInfo[@"audioMuted"] != NULL) {
                     builder.audioMuted = userInfo[@"audioMuted"];
-                    RCTLogInfo(@"Audio Muted By parameter");
+                    
                 }
                 if (userInfo[@"videoMuted"] != NULL) {
                     builder.videoMuted = userInfo[@"videoMuted"];
@@ -63,48 +63,46 @@ RCT_EXPORT_METHOD(call:(NSString *)urlString userInfo:(NSDictionary *)userInfo)
                 }
                 
                 if (userInfo[@"addPeople"] != NULL) {
-                    [builder setFeatureFlag:@"add-people.enabled" withBoolean:userInfo[@"addPeople"] ];
+                    [builder setFeatureFlag:@"add-people.enabled" withBoolean: [userInfo[@"addPeople"] boolValue] ];
                 }
                 if (userInfo[@"calendar"] != NULL) {
-                    [builder setFeatureFlag:@"calendar.enabled" withBoolean:userInfo[@"calendar"] ];
+                    [builder setFeatureFlag:@"calendar.enabled" withBoolean: [userInfo[@"calendar"] boolValue] ];
                 }
                 if (userInfo[@"callIntegration"] != NULL) {
-                    [builder setFeatureFlag:@"call-integration.enabled" withBoolean:userInfo[@"callIntegration"] ];
+                    [builder setFeatureFlag:@"call-integration.enabled" withBoolean: [userInfo[@"callIntegration"] boolValue]];
                 }
                 if (userInfo[@"closeCaptions"] != NULL) {
-                    [builder setFeatureFlag:@"close-captions.enabled" withBoolean:userInfo[@"closeCaptions"] ];
+                    [builder setFeatureFlag:@"close-captions.enabled" withBoolean: [userInfo[@"closeCaptions"] boolValue] ];
                 }
                 if (userInfo[@"chat"] != NULL) {
-                    RCTLogInfo(@"Chat flag received");
-                    RCTLogInfo(@"Chat flag received %@" , [userInfo[@"chat"] boolValue]);
                     [builder setFeatureFlag:@"chat.enabled" withBoolean: [userInfo[@"chat"] boolValue] ];
                 }
                 if (userInfo[@"invite"] != NULL) {
-                    [builder setFeatureFlag:@"invite.enabled" withBoolean:userInfo[@"invite"] ];
+                    [builder setFeatureFlag:@"invite.enabled" withBoolean: [userInfo[@"invite"] boolValue] ];
                 }
                 if (userInfo[@"liveStreaming"] != NULL) {
-                    [builder setFeatureFlag:@"live-streaming" withBoolean:userInfo[@"liveStreaming"] ];
+                    [builder setFeatureFlag:@"live-streaming" withBoolean: [userInfo[@"liveStreaming"] boolValue]];
                 }
                 if (userInfo[@"meetingName"] != NULL) {
-                    [builder setFeatureFlag:@"meeting-name.enabled" withBoolean:userInfo[@"meetingName"] ];
+                    [builder setFeatureFlag:@"meeting-name.enabled" withBoolean: [userInfo[@"meetingName"] boolValue] ];
                 }
                 if (userInfo[@"meetingPassword"] != NULL) {
-                    [builder setFeatureFlag:@"meeting-password.enabled" withBoolean:userInfo[@"meetingPassword"] ];
+                    [builder setFeatureFlag:@"meeting-password.enabled" withBoolean: [userInfo[@"meetingPassword"] boolValue]];
                 }
                 if (userInfo[@"pip"] != NULL) {
-                    [builder setFeatureFlag:@"pip.enabled" withBoolean:userInfo[@"pip"] ];
+                    [builder setFeatureFlag:@"pip.enabled" withBoolean: [userInfo[@"pip"] boolValue]];
                 }
                 if (userInfo[@"raiseHand"] != NULL) {
-                    [builder setFeatureFlag:@"raise-hand.enabled" withBoolean:userInfo[@"raiseHand"] ];
+                    [builder setFeatureFlag:@"raise-hand.enabled" withBoolean:[userInfo[@"raiseHand"] boolValue]];
                 }
                 if (userInfo[@"recording"] != NULL) {
-                    [builder setFeatureFlag:@"recording.enabled" withBoolean:userInfo[@"recording"] ];
+                    [builder setFeatureFlag:@"recording.enabled" withBoolean: [userInfo[@"recording"] boolValue]];
                 }
                 if (userInfo[@"tileView"] != NULL) {
-                    [builder setFeatureFlag:@"tile-view.enabled" withBoolean:userInfo[@"tileView"] ];
+                    [builder setFeatureFlag:@"tile-view.enabled" withBoolean: [userInfo[@"tileView"] boolValue]];
                 }
                 if (userInfo[@"toolboxAwaysVisible"] != NULL) {
-                    [builder setFeatureFlag:@"toolbox.alwaysVisible" withBoolean:userInfo[@"toolboxAwaysVisible"] ];
+                    [builder setFeatureFlag:@"toolbox.alwaysVisible" withBoolean: [userInfo[@"toolboxAwaysVisible"] boolValue]];
                 }
                 
             }

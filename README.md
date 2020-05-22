@@ -383,12 +383,42 @@ https://github.com/RocketChat/react-native-jitsi-meet/blob/master/android/build.
 same repo 
 
 
+### Building using external SDK
+
+#### First time:
+##### iOS
+
+```
+npm install -g ios-deploy
+npm install
+cd ios
+pod install
+cd ..
+
+```
+##### Android
+
+```
+npm install
+./android/scripts/release-sdk.sh /tmp/repo
+```
+
+#### Everytime a change is made :
+##### iOS:
+
+```
+xcodebuild -workspace ios/jitsi-meet.xcworkspace -scheme JitsiMeet -destination='generic/platform=iOS' -configuration Release archive
+```
 
 
+After successfully building Jitsi Meet SDK for iOS, copy ios/sdk/JitsiMeet.framework (if the path points to a symbolic link, follow the symbolic link) and node_modules/react-native-webrtc/ios/WebRTC.framework into your project.
 
+##### Android
 
+```
+./android/scripts/release-sdk.sh /tmp/repo
 
-
+```
 
 
 
