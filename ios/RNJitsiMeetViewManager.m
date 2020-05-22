@@ -53,6 +53,7 @@ RCT_EXPORT_METHOD(call:(NSString *)urlString userInfo:(NSDictionary *)userInfo)
                 }
                 if (userInfo[@"audioMuted"] != NULL) {
                     builder.audioMuted = userInfo[@"audioMuted"];
+                    RCTLogInfo(@"Audio Muted By parameter");
                 }
                 if (userInfo[@"videoMuted"] != NULL) {
                     builder.videoMuted = userInfo[@"videoMuted"];
@@ -74,6 +75,7 @@ RCT_EXPORT_METHOD(call:(NSString *)urlString userInfo:(NSDictionary *)userInfo)
                     [builder setFeatureFlag:@"close-captions.enabled" withBoolean:userInfo[@"closeCaptions"] ];
                 }
                 if (userInfo[@"chat"] != NULL) {
+                    RCTLogInfo(@"Chat flag received");
                     [builder setFeatureFlag:@"chat.enabled" withBoolean:userInfo[@"chat"] ];
                 }
                 if (userInfo[@"invite"] != NULL) {
