@@ -76,6 +76,7 @@ RCT_EXPORT_METHOD(call:(NSString *)urlString userInfo:(NSDictionary *)userInfo)
                 }
                 if (userInfo[@"chat"] != NULL) {
                     RCTLogInfo(@"Chat flag received");
+                    RCTLogInfo(@"Chat flag received %@" , [userInfo[@"chat"] boolValue]);
                     [builder setFeatureFlag:@"chat.enabled" withBoolean: [userInfo[@"chat"] boolValue] ];
                 }
                 if (userInfo[@"invite"] != NULL) {
