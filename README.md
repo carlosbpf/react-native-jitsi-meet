@@ -408,10 +408,18 @@ npm install
 
 ```
 xcodebuild -workspace ios/jitsi-meet.xcworkspace -scheme JitsiMeet -destination='generic/platform=iOS' -configuration Release archive
+
+
 ```
+ios/sdk/JitsiMeet.framework (if the path points to a symbolic link, follow the symbolic link) and node_modules/react-native-webrtc/ios/WebRTC.framework
+
+Go to folder: 
 
 
 After successfully building Jitsi Meet SDK for iOS, copy ios/sdk/JitsiMeet.framework (if the path points to a symbolic link, follow the symbolic link) and node_modules/react-native-webrtc/ios/WebRTC.framework into your project.
+
+
+
 
 ##### Android
 
@@ -420,5 +428,5 @@ After successfully building Jitsi Meet SDK for iOS, copy ios/sdk/JitsiMeet.frame
 
 ```
 
-
+https://koenig-media.raywenderlich.com/downloads/RW-Objective-C-Cheatsheet-v-1-5.pdf
 
